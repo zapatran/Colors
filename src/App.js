@@ -1,17 +1,15 @@
 import React, { Component } from 'react';
-import Card from './components/Card';
-import Form from './components/Form';
-import CardList from './components/CardList';
+import Form from './components/Form/Form';
+import CardList from './components/CardList/CardList';
 
-import { list } from './list';
+import { gradients } from './gradients';
 
 class App extends Component {
   state = {
-    data: list,
+    data: gradients,
   }
 
   handleSubmit = (from, to) => {
-    console.log('submit %s to %s', from, to);
     this.setState({
       data: [...this.state.data, [from, to]],
     })
@@ -19,10 +17,9 @@ class App extends Component {
 
   render() { 
     const { data } = this.state;
-
     return (
       <div>
-        <Form  manejarSubmit={this.handleSubmit} />
+        <Form  onSubmit={this.handleSubmit} />
         <CardList data={data}/>
       </div>
     );

@@ -1,4 +1,4 @@
-export const list = [
+export const gradients = [
   ["#FDEB71", "#F8D800"],
   ["#ABDCFF", "#0396FF"],
   ["#FEB692", "#EA5455"],

@@ -5,7 +5,7 @@ const Form = (props) => {
   return (
     <form className="form" onSubmit={(e) => {
       e.preventDefault();
-      props.manejarSubmit(this._from.value, this._to.value);
+      props.onSubmit(this._from.value, this._to.value);
     }}>
       <fieldset>
         <label>From:</label>
