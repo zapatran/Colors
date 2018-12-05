@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
-import Form from './components/Form/Form';
 import CardList from './components/CardList/CardList';
+import Form from './components/Form/Form';
 
 import { gradients } from './gradients';
 
@@ -10,8 +10,10 @@ class App extends Component {
   }
 
   handleSubmit = (from, to) => {
+    const { data } = this.state;
+    data.push([from, to]);
     this.setState({
-      data: [...this.state.data, [from, to]],
+      data,
     })
   }
 
@@ -19,7 +21,7 @@ class App extends Component {
     const { data } = this.state;
     return (
       <div>
-        <Form  onSubmit={this.handleSubmit} />
+        <Form onSubmit={this.handleSubmit} />
         <CardList data={data}/>
       </div>
     );
