@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import CardList from './components/CardList/CardList';
 import Form from './components/Form/Form';
-
+import { generateColorHex } from './helper';
 import { gradients } from './gradients';
 
 class App extends Component {
@@ -11,7 +11,7 @@ class App extends Component {
 
   handleSubmit = (from, to) => {
     const { data } = this.state;
-    data.push([from, to]);
+    data.push([generateColorHex(), generateColorHex()]);
     this.setState({
       data,
     })
@@ -21,7 +21,8 @@ class App extends Component {
     const { data } = this.state;
     return (
       <div>
-        <Form onSubmit={this.handleSubmit} />
+        {/* <Form onSubmit={this.handleSubmit} /> */}
+        <button className="block" onClick={this.handleSubmit}>add</button>
         <CardList data={data}/>
       </div>
     );
